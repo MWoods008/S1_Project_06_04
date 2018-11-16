@@ -1,0 +1,208 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Case Problem 4
+   
+   Browyer Realty Layout Styles
+   Author: 
+   Date: 
+	
+   Filename: br_styles.css
+
+*/
+/* basic page setup and font */
+body,
+html {
+  height: 100%;
+  background:url("br_paper.png");
+  font-family: 'Roboto', sans-serif;
+}
+/* here I centered the logo, added a shadow and filter, and also skewed the image */
+header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    perspective: 500px;
+    transform: skew(20deg);
+    -webkit-filter: drop-shadow(-15px 0px 5px rgba(51,51,51,0.9)) grayscale(0.7) opacity(0.6);
+    filter: drop-shadow(-15px 0px 5px rgba(51,51,51,0.9)) grayscale(0.7) opacity(0.6);
+}
+/* basic nav setup */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* adding a transition so it fades into the hover color */
+nav ul li a:hover {
+    background-color: #4286f4;
+    transition: 0.3s;
+}
+/* container setup for my slideshow */
+div.container {
+    display: block;
+    clear: both;
+    width: 500px;
+}
+/* right column setup */
+.right {
+    display: block;
+    float: right;
+}
+ /* Adding a rounded border with a radial gradient and box shadow */
+.right .info {
+    margin-right: 50px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background:  radial-gradient(closest-corner at 40% 70%, white 15%, rgba(151,151,151,0.8)50%);
+    box-shadow: 10px 0px 10px rgb(31,31,31), -10px 0px 10px rgb(31,31,31);
+}
+/* setting up position and size for slideshow */
+.slideshow {
+    position: absolute;
+    z-index: 0;
+    top: 200px;;
+    left: 0px;;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+  }
+  .slideshow .slider {
+    width: 500px;
+    height: 500px;
+    z-index: 1;
+  }
+  .slideshow .slider * {
+    outline: none;
+  }
+  /* size for the images in the slideshow */
+  .slideshow .slider .item {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+  .slideshow .slider .item .text {
+    display: none;
+  }
+  /* transforming the image when scrolled, refer to slideshow.js */
+  .slideshow .slider .item img {
+    min-width: 101%;
+    min-height: 101%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  /* adding the dots that are actually lines */
+  .slideshow .slick-dots {
+    position: fixed;
+    z-index: 100;
+    width: 40px;
+    height: auto;
+    bottom: auto;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    left: auto;
+    color: #000;
+    display: block;
+  }
+  .slideshow .slick-dots li {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .slideshow .slick-dots li button {
+    position: relative;
+    width: 20px;
+    height: 15px;
+    text-align: center;
+  }
+  /* transition for the "dots" to apear to grow */
+  .slideshow .slick-dots li button:before {
+    content: '';
+    background: #000;
+    color: #000;
+    height: 2px;
+    width: 20px;
+    border-radius: 0;
+    position: absolute;
+    top: 50%;
+    right: 870px;
+    left: auto;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    opacity: 0.6;
+  }
+  .slideshow .slick-dots li.slick-active button:before {
+    width: 40px;
+    opacity: 1;
+  }
+  .slideshow.slideshow-right {
+    left: 0;
+    z-index: 0;
+    width: 50vw;
+    pointer-events: none;
+  }
+  .slideshow.slideshow-right .slider {
+    left: 0;
+    position: absolute;
+  }
+  /* text set up and transformation */
+  .slideshow-text {
+    position: absolute;
+    top: 250px;;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 100;
+    font-size: 40px;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 100;
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    line-height: 0.8;
+  }
+  @media (max-width: 767px) {
+    .slideshow-text {
+      font-size: 40px;
+    }
+  }
+  .links a {
+    text-decoration: none;
+    color: #4286f4;
+    text-shadow: 0px 0px 5px black;
+    font-size: 1.5em;
+  }
+  .links a:hover {
+    color: white;
+  }
+
+  
